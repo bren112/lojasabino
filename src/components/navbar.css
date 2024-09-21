@@ -51,6 +51,7 @@ a {
   justify-content: space-around;
   height: 8vh;
   background-color: var(--primary);
+  justify-content: center;
 }
 
 .nav__brand {
@@ -111,4 +112,7 @@ a {
 
 .toogle .line3 {
   transform: rotate(-45deg) translate(-4px, -5px);
+}
+#logo{
+width: 5pc;
 }
