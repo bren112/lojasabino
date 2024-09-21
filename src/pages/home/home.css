@@ -1,8 +1,6 @@
 /* Importação de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Kolker+Brush&family=Lobster&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Kolker+Brush&family=Lobster&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
 /* Estilo do título */
 #title {
@@ -17,8 +15,8 @@
     font-family: "Caveat", cursive;
     font-weight: 100;
     text-align: center;
-
 }
+
 /* Estilo do subtítulo */
 #subtitulo {
     text-align: center;
@@ -39,14 +37,12 @@
 .produto-card {
     border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 24px; /* Aumentado para mais espaço interno */
+    padding: 10px;
+    width: 300px;
     text-align: center;
-    width: calc(100% - 32px);
-    max-width: 250px; /* Aumentado para uma largura maior */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .produto-card:hover {
@@ -54,9 +50,10 @@
 }
 
 .produto-card img {
-    max-width: 100%;
-    border-radius: 8px;
-    height: auto; /* Garante que a imagem mantenha a proporção */
+    width: 100%; /* Faz a imagem ocupar toda a largura do card */
+    height: 200px; /* Define uma altura fixa maior */
+    object-fit: cover; /* Garante que a imagem mantenha a proporção e cubra o espaço */
+    border-radius: 8px; /* Mantém a borda arredondada */
 }
 
 /* Estilos adicionais para melhorar a responsividade */
@@ -131,7 +128,8 @@
     border-radius: 8px; /* Para manter a consistência com o restante do modal */
     margin-bottom: 16px; /* Espaçamento abaixo da imagem */
 }
-.whats{
+
+.whats {
     padding: 10px;
     border: none;
     background-color: #17ac09;
@@ -139,7 +137,8 @@
     cursor: pointer;
     border-radius: 4px;
 }
-.whats:hover{
+
+.whats:hover {
     transition: 1.2s;
     background-color: #68f35b;
 }

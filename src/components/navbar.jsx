@@ -26,11 +26,11 @@ function Navbar() {
 
 
     </ul>
-    <div onClick={navToggle} className={toggleIcon}>
+    {/* <div onClick={navToggle} className={toggleIcon}>
         <div className="line1"></div>
         <div className="line2"></div>
         <div className="line3"></div>
-    </div>
+    </div> */}
 </nav>
   )
 }
