@@ -39,7 +39,7 @@ function Home() {
     return (
         <>
             <br />
-            <h1 id='span'> 👚Seminovas da Mari✨</h1>
+            <h1 id='span'>Seminovas da Mari✨</h1>
             <br/>
             <div className="produtos-container">
                 {produtos.map((produto) => (

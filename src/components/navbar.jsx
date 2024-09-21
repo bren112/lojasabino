@@ -18,7 +18,7 @@ function Navbar() {
   return (
     <nav className='nav'>
       <div className="logo">
-    <Link to="/adm" className="nav__brand" id='logo'>DESAPEGOVS</Link>
+    <Link to="/adm" className="nav__brand" id='logo'>DESAPEGOVS👚</Link>
       </div>
     <ul id='links' className={active}>
 
