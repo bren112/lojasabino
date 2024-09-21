@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Indie+Flower&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Kolker+Brush&family=Lobster&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+#title{
+    font-family: "Roboto Flex", sans-serif;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2.6pc;
+}
+#subtitulo{
+    text-align: center;
+    font-weight: 100;
+    font-family: "Indie Flower", cursive;
+}
