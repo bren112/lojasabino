@@ -4,7 +4,7 @@ import Navbar from './components/navbar';
 import Footer from './components/footer';
 import Home from "./pages/home/Home";
 import Compra from "./pages/compra/Compra";
-import Pagamento from "./pages/pagamento/Pagamento";
+import Admin from "./pages/adm/Admin";
 
 
 
@@ -18,7 +18,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/compra" element={<Compra />} />
-            <Route path="/pagamento/:id" element={Pagamento} />
+            <Route path="/adm" element={<Admin />} />
+           
             
 
           </Routes>

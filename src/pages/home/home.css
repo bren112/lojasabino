@@ -1,14 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Indie+Flower&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Kolker+Brush&family=Lobster&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+/* Importação de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Kolker+Brush&family=Lobster&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Comfortaa:wght@300..700&family=Kolker+Brush&family=Lobster&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-#title{
+/* Estilo do título */
+#title {
     font-family: "Roboto Flex", sans-serif;
     text-align: center;
     font-weight: 900;
-    font-size: 2.6pc;
+    font-size: 3.6rem;
+    margin: 20px 0;
 }
-#subtitulo{
+#span{
+    font-size: 3.9rem;
+    font-family: "Caveat", cursive;
+    font-weight: 100;
+
+}
+/* Estilo do subtítulo */
+#subtitulo {
     text-align: center;
     font-weight: 100;
     font-family: "Indie Flower", cursive;
+}
+
+/* Estilo do container de produtos */
+.produtos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+/* Estilo de cada card de produto */
+.produto-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 24px; /* Aumentado para mais espaço interno */
+    text-align: center;
+    width: calc(100% - 32px);
+    max-width: 250px; /* Aumentado para uma largura maior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.produto-card:hover {
+    transform: scale(1.05);
+}
+
+.produto-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    height: auto; /* Garante que a imagem mantenha a proporção */
+}
+
+/* Estilos adicionais para melhorar a responsividade */
+@media (min-width: 600px) {
+    .produto-card {
+        width: calc(50% - 32px);
+    }
+}
+
+@media (min-width: 900px) {
+    .produto-card {
+        width: calc(33.33% - 32px);
+    }
+}
+
+/* Estilo do modal */
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo do conteúdo do modal */
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    width: 90%; /* Largura padrão em mobile */
+    max-width: 400px; /* Largura máxima */
+    margin: 0 20px; /* Margens laterais para espaçamento */
+}
+
+.close {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: red;
+}
+
+/* Estilos para melhorar a responsividade do modal */
+@media (min-width: 600px) {
+    .modal-content {
+        width: 80%; /* Aumenta a largura em telas maiores */
+    }
+}
+
+@media (min-width: 900px) {
+    .modal-content {
+        width: 60%; /* Reduz a largura em telas ainda maiores */
+    }
+}
+
+/* Estilo da imagem no modal */
+.modal-content img {
+    max-width: 100%; /* Garante que a imagem não exceda a largura do modal */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 8px; /* Para manter a consistência com o restante do modal */
+    margin-bottom: 16px; /* Espaçamento abaixo da imagem */
+}
+.whats{
+    padding: 10px;
+    border: none;
+    background-color: #17ac09;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.whats:hover{
+    transition: 1.2s;
+    background-color: #68f35b;
 }

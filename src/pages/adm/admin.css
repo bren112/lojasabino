@@ -1,0 +1,56 @@
+.admin-container {
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+input {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Tamanho de fonte fixo para evitar zoom em dispositivos móveis */
+    /* Remover zoom em dispositivos móveis */
+    touch-action: manipulation;
+    /* Definir viewport para evitar zoom no input */
+    /* No HTML: <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> */
+}
+
+button {
+    margin: 5px 0;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+/* Estilos adicionais para responsividade */
+@media (max-width: 600px) {
+    .admin-container {
+        padding: 10px;
+    }
+
+    input,
+    button {
+        font-size: 14px; /* Ajusta o tamanho da fonte em dispositivos menores */
+    }
+}

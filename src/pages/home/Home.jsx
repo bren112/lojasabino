@@ -1,118 +1,84 @@
+import React, { useEffect, useState } from 'react';
+import supabase from '../../supabaseclient';
 import './home.css';
-import { useState } from 'react';
-import supabase from '../../supabaseclient'; // Supabase client configurado
 
 function Home() {
-    const [nome, setNome] = useState('');
-    const [descricao, setDescricao] = useState('');
-    const [preco, setPreco] = useState('');
-    const [imagem, setImagem] = useState(null);
-    const [message, setMessage] = useState('');
+    const [produtos, setProdutos] = useState([]);
+    const [modalVisible, setModalVisible] = useState(false);
+    const [produtoSelecionado, setProdutoSelecionado] = useState(null);
 
-    // Função para manipular o upload de imagem
-    const handleUpload = async (event) => {
-        const file = event.target.files[0];
-        setImagem(file); // Salva a imagem no estado para upload posterior
+    useEffect(() => {
+        fetchProdutos();
+    }, []);
+
+    const fetchProdutos = async () => {
+        const { data, error } = await supabase.from('roupas').select('*');
+        if (error) {
+            console.error('Erro ao buscar produtos:', error.message);
+        } else {
+            setProdutos(data);
+        }
     };
 
-    // Função para enviar o formulário e salvar o produto
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    const openModal = (produto) => {
+        setProdutoSelecionado(produto);
+        setModalVisible(true);
+    };
 
-        // Valida o valor do preço
-        if (parseFloat(preco) <= 0 || isNaN(parseFloat(preco))) {
-            setMessage('Por favor, insira um valor de preço válido e positivo.');
-            return;
+    const closeModal = () => {
+        setModalVisible(false);
+        setProdutoSelecionado(null);
+    };
+
+    const handleClickOutside = (e) => {
+        if (e.target.classList.contains('modal')) {
+            closeModal();
         }
-
-        let imagemUrl = '';
-
-        if (imagem) {
-            // Gera um nome único para a imagem usando o timestamp
-            const imagemPath = `public/${Date.now()}-${imagem.name}`;
-
-            // Upload da imagem para o bucket "imagens-roupa"
-            const { data: uploadData, error: uploadError } = await supabase
-                .storage
-                .from('imagens-roupa')
-                .upload(imagemPath, imagem);
-
-            if (uploadError) {
-                setMessage('Erro ao fazer upload da imagem: ' + uploadError.message);
-                return;
-            }
-
-            // Obtém a URL pública da imagem
-            const { data: publicData } = supabase
-                .storage
-                .from('imagens-roupa')
-                .getPublicUrl(imagemPath);
-            
-            imagemUrl = publicData.publicUrl;
-        }
-
-        // Insere os dados do produto no Supabase
-        const { data, error } = await supabase
-            .from('roupas')
-            .insert([
-                { nome, descricao, preco: parseFloat(preco), imagem: imagemUrl }
-            ]);
-
-        if (error) {
-            setMessage('Erro ao salvar os dados: ' + error.message);
-        } else {
-            setMessage('Produto cadastrado com sucesso!');
-        }
-
-        // Limpa os campos após o envio
-        setNome('');
-        setDescricao('');
-        setPreco('');
-        setImagem(null);
     };
 
     return (
         <>
             <br />
-            <h1 id='title'>Roupas Seminovas!</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Nome:</label>
-                <input 
-                    type="text" 
-                    value={nome} 
-                    onChange={(e) => setNome(e.target.value)} 
-                    required 
-                />
-                <br />
-                <label>Descrição:</label>
-                <input 
-                    type="text" 
-                    value={descricao} 
-                    onChange={(e) => setDescricao(e.target.value)} 
-                    required 
-                />
-                <br />
-                <label>Preço (somente valores positivos):</label>
-                <input 
-                    type="number" 
-                    step="0.01"
-                    min="0"
-                    value={preco} 
-                    onChange={(e) => setPreco(e.target.value)} 
-                    required 
-                />
-                <br />
-                <label>Imagem:</label>
-                <input 
-                    type="file" 
-                    onChange={handleUpload} 
-                    required 
-                />
-                <br />
-                <button type="submit">Cadastrar Produto</button>
-            </form>
+            <h1 id='title'>Roupas Seminovas da <span id='span'>Mari✨!</span></h1>
+            <div className="produtos-container">
+                {produtos.map((produto) => (
+                    <div key={produto.id} className="produto-card">
+                        <h2>{produto.nome}</h2>
+                        <br/>
+                        <img src={produto.imagem} alt={produto.nome} />
+                        <br/>
+                        <br/>
 
-            {message && <p>{message}</p>}
+                        <p>{produto.descricao}</p>
+                        <br/>
+
+                        <p>{produto.preco.toFixed(2)}</p>
+                        <br/>
+
+                        <button onClick={() => openModal(produto)}>Comprar</button>
+                    </div>
+                ))}
+            </div>
+
+            {modalVisible && produtoSelecionado && (
+                <div className="modal" onClick={handleClickOutside}>
+                    <div className="modal-content">
+                        <span className="close" onClick={closeModal}>&times;</span>
+                        <h2>{produtoSelecionado.nome}</h2>
+                        <br />
+                        <img src={produtoSelecionado.imagem} alt={produtoSelecionado.nome} />
+                        <p>{produtoSelecionado.preco.toFixed(2)}</p>
+                        <br />
+                        <a 
+                            href={`https://wa.me/19983057540?text=${encodeURIComponent(produtoSelecionado.nome)}`} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                        >
+                            <button className='whats'>Enviar pelo WhatsApp</button>
+                        </a>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
