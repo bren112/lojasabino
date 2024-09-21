@@ -1,3 +1,8 @@
+#p{
+    font-size: 0.8pc;
+    font-weight: 100;
+}
+
 .admin-container {
     padding: 20px;
 }
@@ -22,16 +27,21 @@ input {
 
 button {
     margin: 5px 0;
+    margin: 5px 0;
     padding: 10px;
     border: none;
-    background-color: #007bff;
+    background-color: #ff00f2;
     color: white;
     cursor: pointer;
     border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #8a269d;
 }
 
 ul {

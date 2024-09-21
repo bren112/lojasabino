@@ -18,11 +18,10 @@ function Navbar() {
   return (
     <nav className='nav'>
       <div className="logo">
-    <Link to="/" className="nav__brand" id='logo'>DESAPEGOVS 👗</Link>
+    <Link to="/adm" className="nav__brand" id='logo'>DESAPEGOVS</Link>
       </div>
     <ul id='links' className={active}>
-        <li className="nav__item"><Link to="/" className="nav__link">Home</Link></li>
-        <li className="nav__item"><Link to="/adm" className="nav__link">Admin</Link></li>
+
 
 
 
