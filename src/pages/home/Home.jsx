@@ -71,7 +71,7 @@ function Home() {
                         <p>{produtoSelecionado.preco.toFixed(2)}</p>
                         <br />
                         <a 
-                            href={`https://wa.me/19983057540?text=${encodeURIComponent(produtoSelecionado.nome)}`} 
+                            href={`https://wa.me/19997595709?text=${"Oii Marii vou querer ->"+encodeURIComponent(produtoSelecionado.nome)}`} 
                             target="_blank" 
                             rel="noopener noreferrer"
                         >
