@@ -182,7 +182,7 @@ function Admin() {
                             required
                         />
                         <br />
-                        <label>Preço (somente valores positivos):</label>
+                        <label>Preço:</label>
                         <input
                             type="number"
                             step="0.01"
